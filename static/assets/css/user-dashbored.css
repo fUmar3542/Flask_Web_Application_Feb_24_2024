@@ -1,0 +1,759 @@
+@import url(style.css);
+@import url(about.css);
+@import url(manage_hr.css);
+
+.tab-wrap {
+    position: relative;
+    padding: 59px 0 89px;
+}
+
+/* Style the tab */
+.tab {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 230px;
+    padding: 49px 0 60px;
+    border: 1px solid #ccc;
+  }
+
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab .tablinks-wrap .active {
+    border-left: 2px solid #244BA8;
+}
+
+.tab .tablinks-wrap .active span {
+    color: #244BA8;
+}
+
+.tab .tablinks-wrap .active svg {
+    fill: #244BA8;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: flex;
+    padding: 0px 12px;
+    border: 1px solid #ccc; 
+    border-left: none;
+    width: 100%;
+    padding: 48px 40px 0;
+    position: relative;
+    background-color: #FAFAFA;
+}
+
+.tabcontent .Welcome-dashboard > img {
+    position: absolute;
+    top: 48px;
+    right: 40px;
+}
+
+.tab-main {
+    display: flex;
+}
+
+.tab > .dash-logo  {
+    margin: 0 auto;
+}
+
+.tablinks {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 16px;
+    padding: 6px 60px 6px 40px;
+    transition: all 0.3s ease-out;
+}
+
+.tablinks span {
+    color: #C4C4C4;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: normal;
+    letter-spacing: 0.32px;
+}
+
+.tablinks .tablinks-img svg  {
+    fill: #C4C4C4;
+}
+
+.tablinks-wrap {
+    padding: 70px 0 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+
+.Welcome-dashboard h2 {
+    color: #FF6955;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px; /* 90% */
+    letter-spacing: 0.1px;
+    margin-bottom: 68px;
+    padding-top: 29px;
+}
+
+.Welcome-dashboard p {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.Welcome-dashboard span {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    opacity: 0.5;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.Welcome-dashboard {
+    padding-bottom: 65px;
+}
+
+.dashboard-form h3 {
+    color: #000;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #CBCBCB;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.dashboard-form-input input {
+    width: 100%;
+    padding: 14px 24px;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    border-radius: 50px;
+    border: 1px solid rgba(19, 19, 19, 0.25);
+    background: #FFF;
+    font-weight: 300;
+    line-height: normal;
+    color: #244BA8;
+    margin-bottom: 40px;
+    transition: all 0.3s ease-out;
+}
+
+.dashboard-form-input input:focus-visible {
+    outline: none;
+    border: 1px solid #244BA8;
+}
+
+.dashboard-form-input label {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 22px;
+}
+
+.dashboard-form-input input::placeholder {
+    color: rgba(19, 19, 19, 0.50);
+}
+
+.dashboard-form-submit button {
+    border-radius: 50px;
+    background: #244BA8;
+    font-family: 'graphik_regularregular';
+    width: 100%;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 20px;
+    padding: 13px;
+    border: 2px solid transparent;
+}
+
+.dashboard-form-submit button:hover {
+    background-color: transparent;
+    border: 2px solid #244BA8;
+    color: #244BA8;
+    transition: all 0.3s ease-out;
+}
+
+.user-logout a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
+    text-decoration: none;
+    padding: 6px 60px 6px 38px;
+    border-left: 2px solid transparent;
+    transition: all 0.3s ease-out;
+}
+
+.user-logout svg {
+    fill: #C4C4C4;
+    transition: all 0.3s ease-out;
+}
+
+.user-logout p {
+    color: #C4C4C4;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    margin-bottom: 0;
+    transition: all 0.3s ease-out;
+}
+
+.user-logout .tablinks-img svg {
+    width: 100%;
+    max-width: 30px;
+    height: 30px;
+}
+
+.user-logout:hover .tablinks-img svg {
+    fill: #244BA8;
+}
+
+.user-logout:hover  p {
+    color: #244BA8;
+}
+
+.user-logout:hover {
+    cursor: pointer;
+    border-left: 2px solid #244BA8;
+}
+
+.table-wrap h3 {
+    border: none;
+    padding: none;
+    margin-bottom: 30px;
+}
+
+.user-dashboard-tabs .chart-row {
+    padding-top: 6vw;
+    min-height: 530px;
+    overflow-y: hidden;
+}
+
+.user-dashboard-tabs .chart-row canvas {
+    margin: 0;
+    margin-top: 5vw;
+}
+
+.reviews-star {
+    margin-top: 28px;
+}
+
+.reviews-star h5 {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    text-align: left;
+    line-height: 20px; /* 142.857% */
+}
+
+/*** star ***/
+
+.review-container{
+    width:100%;
+    text-align:start;
+    display: flex;
+    gap: 10px;
+  }
+
+  .input-fields button.star:hover {
+    color: unset;
+    background-color: #244BA8;
+    border: unset;
+  }
+  .star{
+    background-color:transparent;
+    border:0;
+    outline:0;
+    
+    .stararea{
+      height:25px;
+      display:block;
+      position:relative;
+      color:#FFF;
+    font-size:35px;
+      line-height:25px;
+    cursor:pointer;
+    z-index:10;
+    text-align:center;
+      
+      &:before{
+      width:25px;
+      height:25px;
+      content:'★';
+      display:inline-block;
+      color:#95a5a6;
+      position:absolute;
+      left:0;
+      top:-1px; 
+      opacity:0;
+      z-index:-1;
+    }
+
+      &:after{
+      width:25px;
+      height:25px;
+      content:'★';
+      display:inline-block;
+      color:#f1c40f;
+      position:absolute;
+      left:0;
+      top:-1px; 
+      opacity:0;
+    z-index:-2;
+    }
+     
+    }
+    &:hover .stararea{
+      color: #f1c40f;
+    }
+    
+    &.active .stararea{
+    -webkit-animation: starbackground 500ms 1;
+    -moz-animation:    starbackground 500ms 1; 
+    -o-animation:      starbackground 500ms 1; 
+    animation:         starbackground 500ms 1; 
+    animation-delay: 250ms;
+    animation-fill-mode: forwards;
+      &:before{
+        
+        
+    -webkit-animation: staranimation 250ms 1;
+    -moz-animation:    staranimation 250ms 1; 
+    -o-animation:      staranimation 250ms 1; 
+    animation:         staranimation 250ms 1; 
+      }
+      &:after{
+    -webkit-animation: staranimation 350ms 1;
+    -moz-animation:    staranimation 500ms 1; 
+    -o-animation:      staranimation 500ms 1; 
+    animation:         staranimation 500ms 1;
+    animation-delay: 250ms;
+      }
+    }
+  }
+  
+  
+  @-webkit-keyframes staranimation {
+    0%   { 
+      opacity: 0;
+      transform:scale(1);
+      
+    }
+    50% {opacity:0.5;}
+    100% { 
+      opacity: 0;
+      transform:scale(2);
+      top:-1px;
+      
+    }
+  }
+  @-moz-keyframes staranimation {
+    0%   { 
+      opacity: 0;
+      transform:scale(1);
+      
+    }
+    50% {opacity:0.5;}
+    100% { 
+      opacity: 0;
+      transform:scale(2);
+      top:-1px;
+      
+    }
+  }
+  @-o-keyframes staranimation {
+    0%   { 
+      opacity: 0;
+      transform:scale(1);
+      
+    }
+    50% {opacity:0.5;}
+    100% { 
+      opacity: 0;
+      transform:scale(2);
+      top:-1px;
+      
+    }
+  }
+  @keyframes staranimation {
+    0%   { 
+      opacity: 0;
+      transform:scale(1);
+      
+    }
+    50% {opacity:0.5;}
+    100% { 
+      opacity: 0;
+      transform:scale(2);
+      top:-1px;
+      
+    }
+  }
+
+  
+  @-webkit-keyframes starbackground {
+    0%   { 
+          color: #aaaaaa; 
+    }
+     100%   { 
+      color: #f1c40f;
+     
+    }  
+  }
+  @-moz-keyframes starbackground {
+    0%   { 
+          color: #aaaaaa; 
+    }
+     100%   { 
+      color: #f1c40f;
+     
+    }  
+  }
+  @-o-keyframes starbackground {
+     0%   { 
+          color: #aaaaaa; 
+    }
+     100%   { 
+      color: #f1c40f;
+     
+    }  
+  }
+  @keyframes starbackground {
+    0%   { 
+          color: #aaaaaa; 
+    }
+     100%   { 
+      color: #f1c40f;
+     
+    }  
+  }
+
+
+// User charts
+
+.chart-row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to the next row */
+    justify-content: space-between; /* Space between the charts */
+    align-items: flex-start; /* Align vertically at the top */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.chart-container {
+    width: 50%; /* Set a fixed width for each chart container (50% for two containers) */
+    max-height: auto; /* Increase the maximum height as needed */
+    box-sizing: border-box; /* Ensure padding and borders are included in the width */
+    padding: 10px; /* Add padding for spacing within each chart container */
+    border: none; /* Remove borders */
+}
+
+.chart-container canvas {
+    max-width: 100%; /* Allow the chart to take the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the canvas is a block-level element */
+}
+
+/* Billing Tab Style */
+.form-image.billing-illustration img {
+    max-width: 500px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.col-md-6.form-image.billing-illustration {
+    background: #fff;
+}
+
+#billing-payment-form input,
+#billing-payment-form #card-element {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.billing-container button {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 5px;
+    background: #244BA8;
+    margin-bottom: 10px;
+}
+
+.billing-container button#update-billing-details:hover,
+ .billing-container button#update-billing-details {
+    background: #FF6955;
+    color: #fff;
+}
+
+.billing-container button#checkout-user-panel:hover,
+.billing-container button#checkout-user-panel:hover {
+    background: #30872E;
+    color: #fff;
+}
+
+.billing-container .billing-form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+}
+
+.billing-container .billing-form-grid .billing-pair {
+    width: 48%;
+}
+
+.billing-container .billing-pair p {
+    margin: 0;
+}
+
+.billing-container .billing-pair {
+    margin-bottom: 20px;
+}
+
+.billing-container .billing-form-grid .billing-pair .billing-label {
+    flex-basis: unset;
+}
+
+#file-info1 {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#remove-file1 {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 18px;
+  color: red;
+}
+
+#wrap-payment-model {
+    max-width:600px;
+}
+
+@media screen and (max-width: 800px) {
+    .billing-container .billing-form-grid .billing-pair {
+        width: 100%;
+    }
+}
+/* For screens below 768px (small views), display the charts in two rows */
+@media screen and (max-width: 768px) {
+    .chart-row {
+        flex-wrap: wrap; /* Allow charts to wrap to the next row */
+        justify-content: flex-start; /* Start a new row */
+    }
+
+    .chart-container {
+        width: 100%; /* Full width for each chart container in small views */
+        max-height: 400px; /* Adjust the maximum height as needed */
+        margin-bottom: 10px; /* Add margin to separate the rows */
+    }
+
+    .billing-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .billing-pair.billing-address {
+        display: block;
+    }
+}
+
+/* For screens above 768px (large views), display the charts side by side */
+@media screen and (min-width: 769px) {
+    .chart-row {
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping to the next row */
+        justify-content: space-between; /* Space between the charts */
+        align-items: flex-start; /* Align vertically at the top */
+        overflow-x: auto; /* Enable horizontal scrolling if needed */
+    }
+
+    .chart-container {
+        width: 50%; /* Set a fixed width for each chart container (50% for two containers) */
+        max-height: 400px; /* Adjust the maximum height as needed */
+        box-sizing: border-box; /* Ensure padding and borders are included in the width */
+        padding: 10px; /* Add padding for spacing within each chart container */
+        border: none; /* Remove borders */
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 1174px) {
+    .tabcontent .Welcome-dashboard > img {
+        width: 100%;
+        max-width: 250px;
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .tabcontent {
+        padding: 20px 20px 0;
+    }
+
+    .tabcontent .Welcome-dashboard > img {
+        max-width: 150px;
+        bottom: 0;
+    }
+
+    .Welcome-dashboard > div {
+        position: relative;
+        z-index: 2;
+    }
+
+    .dash-logo img {
+        width: 100%;
+        max-width: 80px;
+    }
+
+    .tablinks-wrap {
+        padding: 40px 0 120px;
+    }
+
+    .Welcome-dashboard {
+        padding-bottom: 40px;
+    }
+
+    .tab {
+        max-width: 55px;
+    }
+
+    .tablinks, 
+    .user-logout a {
+        padding: 6px 10px;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .user-dashboard-tabs .chart-row canvas {
+        margin: 0 auto;
+        margin-top: 0;
+    }
+
+    .user-dashboard-tabs .chart-row {
+        padding-top: 0;
+    }
+
+    .user-dashboard-tabs .table-outer-div {
+        overflow-x: scroll;
+    }
+
+    .user-dashboard-tabs .table-outer-div table {
+        width: 850px;
+    }
+
+    .user-dashboard-tabs div#services .table-outer-div table {
+        width: 600px;
+    }
+
+    .tablinks span,
+     .user-logout p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .tab {
+        max-width: 100px;
+    }
+
+    .dash-logo img {
+        width: 100%;
+        max-width: 60px;
+    }
+
+    .tablinks,
+    .user-logout a {
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-logout p {
+        display: none;
+    }
+
+    .tabcontent {
+        padding: 20px;
+    }
+
+    .Welcome-dashboard h2 {
+        font-size: 30px;
+    }
+
+    .dashboard-form-input input {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-form h3 {
+        margin-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .user-dashbored-wrap {
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .tabcontent .Welcome-dashboard > img {
+        display: none;
+    }
+
+    .Welcome-dashboard h2 {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .billing-container .billing-pair {
+        display: block;
+    }
+    .tab {
+        max-width: 60px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .tabcontent {
+        padding: 10px;
+    }
+}

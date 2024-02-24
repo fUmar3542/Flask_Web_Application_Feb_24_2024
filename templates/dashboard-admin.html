@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlASK WEB APPLICATION</title>
+    <link rel="icon" type="image/x-icon" href="static/assets/images/animation.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/assets/font/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/css/manage_hr.css">
+</head>
+<body>
+
+	<!-- banner -->
+	<section class="about-bannner-bg">
+		<div class="container-fluid"> <img src="static/assets/images/manage_hr.png" alt="">
+			<div class="row">
+				<div class="col-sm-6 mx-auto">
+					<div class="about-banner mange-hr-banner">
+						<h1>Hi!</h1>
+						<p>Your website's command center – manage it all from here</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    {% if message != "" %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">*</span>
+          </button>
+        </div>
+    {% endif %}
+
+	<!-- table section -->
+	<section class="d-flex justify-content-center align-items-center admin-dashboard">
+		<div class="card p-3">
+			<h2 class="p-3">MANAGE CUSTOMERS ORDERS</h2>
+			<nav>
+				<div class="nav nav-tabs" id="nav-tab" role="tablist">
+					<button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Manage Customers</button>
+					<button class="nav-link" id="nav-order-tab" data-bs-toggle="tab" data-bs-target="#nav-order" type="button" role="tab" aria-controls="nav-order" aria-selected="false">Manage Orders</button>
+				</div>
+			</nav>
+			<div class="tab-content p-3" id="nav-tabContent">
+				<div class="tab-pane position-relative fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Customer ID</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Age</th>
+									<th scope="col">Country</th>
+									<th scope="col">Update</th>
+									<th scope="col">Delete</th>
+								</tr>
+							</thead>
+							<tbody id="hr_table">
+								{% for x in data["customers"] %}
+									<tr id="hr_row_{{x.Customer_ID}}">
+										<td scope="row">#CR{{x.Customer_ID}}</td>
+										<td>{{x.Customer_First_Name}}</td>
+										<td>{{x.Customer_Last_Name}}</td>
+										<td>{{x.Age}}</td>
+										<td>{{x.Country}}</td>
+										<td><button class="update_btn update_hr" data-id="{{x.Customer_ID}}">Update</button></td>
+										<td><button class="update_btn delete_btn delete_hr" data-id="{{x.Customer_ID}}">Delete</button></td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						<div class="search-table">
+							<div class="search-table-wrap">
+								<div class="search-input">
+									<input type="search" name="search" id="search_hr" placeholder="Search HR...">
+									<img src="static/assets/images/search-icon.svg" alt="">
+								</div>
+								<a class="search-button" id="create_hr" href="#">Create New</a>
+							</div>
+						</div>
+						<div class="custom-model-main" id="mange-hr">
+							<div class="custom-model-inner">
+								<div class="close-btn"><img class="arrow" src="static/assets/images/cross.svg" alt=""></div>
+								<div class="custom-model-wrap manege-model">
+									<div class="pop-up-content-wrap">
+										<form class="login-form">
+											<div class="input-fields">
+												<h5>First Name</h5>
+												<input type="text" class="login-inputs" placeholder="Name" name="name1" id="admin_create_hr_name1" required maxlength="50">
+												<h5>Last Name</h5>
+												<input type="text" class="login-inputs" placeholder="Name" name="name2" id="admin_create_hr_name2" required maxlength="50">
+												<h5>Age</h5>
+												<input type="text" class="login-inputs" placeholder="Age" id="admin_create_hr_age" name="age" required maxlength="50">
+												<h5>Country</h5>
+												<input type="text" class="login-inputs" placeholder="Country" id="admin_create_hr_country" name="country" required maxlength="10">
+												<button type="submit" id="admin_add_manager_button">Add Customer</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="bg-overlay"></div>
+						</div>
+						<div class="custom-model-main" id="update-hr">
+							<div class="custom-model-inner">
+								<div class="close-btn"><img class="arrow" src="static/assets/images/cross.svg" alt="">
+								</div>
+								<div class="custom-model-wrap manege-model">
+									<div class="pop-up-content-wrap">
+										<form class="login-form">
+											<div class="input-fields">
+												<input type="text" id="update-hr-id" hidden>
+												<h5>First Name</h5>
+												<input type="email" class="login-inputs" placeholder="First Name" name="name1" id="update-hr-name1" readonly maxlength="50" style="background-color: #f0f0f0;">
+												<h5>Last Name</h5>
+												<input type="text" class="login-inputs" placeholder="Name" name="name2" id="update-hr-name2" required maxlength="50">
+												<h5>Age</h5>
+												<input type="text" class="login-inputs" placeholder="Age" name="age" id="update-hr-age" required maxlength="10">
+												<h5>Country</h5>
+												<input type="text" class="login-inputs" placeholder="Country" name="country" id="update-hr-country" required maxlength="10">
+												<button type="submit" id="admin_update_manager">Update Customer</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+                        <div class="bg-overlay"></div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="static/assets/js/admin.js"></script>
+    <script src="static/assets/js/my_js.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="static/assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+@import url(style.css);
+@import url(about.css);
+@import url(services.css);
+@import url(learn.css);
+
+.login-form-section{
+    background-color: #F2F7FC;
+    padding: 0 30px 120px;
+}
+
+.login-form{
+    border-radius: 24px;
+    background: #FFF;
+    box-shadow: 0px 16px 24px 0px rgba(36, 75, 168, 0.08);
+    width: 100%;
+    max-width: 470px;
+    margin: 0 auto;
+    padding: 48px 82px;
+}
+
+.form-image{
+    width: 100%;
+    text-align: center;
+}
+
+.login-inputs{
+    border-radius: 8px;
+    border: 1px solid #B2B2B2;
+    background: #FFF;
+    box-shadow: 0px 0px 0px 0px #B2B2B2;
+    width: 100%;
+    height: 48px;
+    padding-left: 14px;
+    margin-top: 33px;
+    color: #B2B2B2;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.input-fields button{
+    border-radius: 8px;
+    background: #244BA8;
+    width: 100%;
+    height: 46px;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    border: 2px solid transparent;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-top: 33px;
+    border: none;
+    transition: all 0.3s ease-out;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.input-fields button:hover {
+    color: #244BA8;
+    background-color: transparent;
+    border: 2px solid #244BA8;   
+}
+
+.input-fields p{
+    margin-top: 10px;
+    margin-bottom: -20px;
+    color: #000;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 1.2px;
+}
+
+.input-fields .google-btn {
+    background: #FF6955;
+}
+
+.input-fields .google-btn:hover {
+    color: #FF6955;
+    background-color: transparent;
+    border: 2px solid #FF6955;   
+}
+
+.input-fields .google-btn:hover a {
+    color: #FF6955;
+}
+
+.last-login-links{
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.last-login-links a{
+    color: #244BA8;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+}
+
+.custom-model-inner .login-inputs {
+    margin-top: 0;
+}
+
+.custom-model-inner h5,
+ .custom-model-inner label {
+    font-family: 'graphik_regularregular';
+    font-size: 14px;
+}
+
+.custom-model-inner h5 {
+    margin-top: 24px;
+}
+
+textarea#doc_description {
+    margin-top: 40px;
+}
+
+#mange-shipping .login-inputs {
+    background: transparent !important;
+}
+
+#mange-shipping input#update_shipping_price {
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 576px) {
+    .login-form {
+        padding: 48px 48px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .login-form {
+        padding: 38px 30px;
+    }
+    .login-form-section {
+        padding: 120px 20px;
+    }
+}

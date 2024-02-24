@@ -1,0 +1,123 @@
+@import url(style.css);
+@import url(about.css);
+@import url(partner.css);
+@import url(contact.css);
+
+.value_section{
+    padding: 113px 30px;
+}
+
+.value_heading{
+   width: 100%;
+   max-width: 290px;
+   margin: 0 auto;
+}
+
+.value_heading h2{
+    color: #244BA8;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+}
+
+.value_heading span{
+    color: #FF6955;
+}
+
+.value_list li{
+    list-style: none;
+}
+
+.value_li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.value_list ul li{
+    color: #244BA8;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Services-banner{
+    background-color: #F2F7FC;
+}
+
+.service-banner-heading{
+    text-align: center;
+}
+
+.service-banner-heading h1{
+    color: #244BA8;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+
+.services-banner-image{
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    max-height: 400px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.Services-banner-heading-two{
+    width: 100%;
+    max-width: 355px;
+    margin: 0 auto;
+}
+.Services-banner-heading-two h2{
+    color: #244BA8;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 26px;
+    text-transform: capitalize;
+}
+
+.Services-banner .row {
+    align-items: center;
+}
+
+.Services-banner-heading-two p{
+    color: #244BA8;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.service-column-two{
+    margin-top: 80px;
+    margin-bottom: 200px;
+}
+
+.pricing-plan-section p#pricing_description_text {
+    color: #fff;
+}
+
+  @media screen and (min-width:800px){
+      .custom-model-main:before {
+        content: "";
+        display: inline-block;
+        height: auto;
+        vertical-align: middle;
+        margin-right: -0px;
+        height: 100%;
+      }
+  }
+  @media screen and (max-width:799px){
+    .custom-model-inner{margin-top: 45px;}
+  }
