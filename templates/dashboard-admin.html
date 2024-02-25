@@ -25,6 +25,19 @@
 			</div>
 		</div>
 	</section>
+	<div class="custom-model-main" id="confirmationModel">
+        <div class="custom-model-inner" id="myConfirmationModel">
+            <div class="close-btn"><img class="arrow" src="static/assets/images/close.svg" alt=""></div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap text-center">
+                    <h3 id="popTitle1">Are you sure?</h3>
+                    <button class="btn btn-primary" id="yes_confirmation_button">Yes</button>
+                    <button class="btn btn-primary" id="no_confirmation_button">No</button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-overlay"></div>
+   </div>
 
     {% if message != "" %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -117,7 +130,7 @@
 											<div class="input-fields">
 												<input type="text" id="update-hr-id" hidden>
 												<h5>First Name</h5>
-												<input type="email" class="login-inputs" placeholder="First Name" name="name1" id="update-hr-name1" readonly maxlength="50" style="background-color: #f0f0f0;">
+												<input type="email" class="login-inputs" placeholder="First Name" name="name1" id="update-hr-name1" maxlength="50">
 												<h5>Last Name</h5>
 												<input type="text" class="login-inputs" placeholder="Name" name="name2" id="update-hr-name2" required maxlength="50">
 												<h5>Age</h5>

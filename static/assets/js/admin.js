@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Search HR
+// Search Customer
 document.addEventListener("DOMContentLoaded", function() {
-    const searchInput = document.getElementById("search_hr");
-    const tableRows = document.querySelectorAll(".table tbody tr");
+    const searchInput = document.getElementById("search_hr");       // get search keyword
+    const tableRows = document.querySelectorAll(".table tbody tr"); // get table data
 
-    searchInput.addEventListener("input", function() {
+    searchInput.addEventListener("input", function() {              // search keyword in table and display info
         const searchText = searchInput.value.toLowerCase();
         tableRows.forEach(function(row) {
             const rowData = row.textContent.toLowerCase();
@@ -16,10 +16,26 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+$("#nav-home-tab").click();     // Show customer details
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Function to show message
+function showMessage(message) {
+    swal({
+        content: {
+            element: "p",
+            attributes: {
+                innerText: message,
+                style: "color: black;",
+                className: "p",
+            },
+        },
+    });
+}
+
+// Create, Update, Delete Customer
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-// mange hr
+// Delete customer
 $(".update_btn.delete_btn.delete_hr").on('click', function() {
     var result; // Declare result in a global scope
     var id = this.getAttribute("data-id");
@@ -29,33 +45,34 @@ $(".update_btn.delete_btn.delete_hr").on('click', function() {
         if (result !== undefined && result === true) {
             $.ajax({
                 url: "/delete_hr/" + id
-            }).done(function (message) {
-                if (message === "Manager Deleted Successfully") {
+            }).done(function (response) {
+                if (response.message === "Customer Deleted Successfully") {
                     var rowToRemove = $("#hr_row_" + id); // Target the row using the ID
                     console.log(rowToRemove)
                     if (rowToRemove.length > 0) {
                         rowToRemove.remove(); // Remove the row from the table
                     }
                 }
-                showMessage(message);
+                showMessage(response.message);
             });
         }
     }
-
     exampleUsage();
 
 });
+
 
 $(".update_btn.update_hr").on('click', function() {
     var id = this.getAttribute("data-id");
     console.log(id)
     $.ajax({
-        url: "/get_hr/" + id
+        url: "/get_customer/" + id
     }).done(function(arr) {
-        document.getElementById("update-hr-id").value = arr[0]
-        document.getElementById("update-hr-name").value = arr[1];
-        document.getElementById("update-hr-email").value = arr[2];
-        document.getElementById("update-hr-password").value = arr[3];
+        document.getElementById("update-hr-id").value = arr.Customer_ID
+        document.getElementById("update-hr-name1").value = arr.Customer_First_Name;
+        document.getElementById("update-hr-name2").value = arr.Customer_Last_Name;
+        document.getElementById("update-hr-age").value = arr.Age;
+        document.getElementById("update-hr-country").value = arr.Country;
         $("#update-hr").addClass('model-open');
     });
 });
@@ -69,31 +86,39 @@ $(document).ready(function() {
         event.preventDefault(); // Prevent default form submission
 
         // Get the form input values
-        var email = $("#update-hr-email").val();
-        var name = $("#update-hr-name").val();
-        var password = $("#update-hr-password").val();
+        var name1 = $("#update-hr-name1").val();
+        var name2 = $("#update-hr-name2").val();
+        var age = $("#update-hr-age").val();
+        var country = $("#update-hr-country").val();
         var id = $("#update-hr-id").val()
 
-        if (name === "" || password === "") {
+        if (name1 === "" || age === "" || name2 === "" || country === "") {
             showMessage("Please fill out all fields.");
             return;
         }
 
         var titleRegex = /^[a-zA-Z0-9\s]+$/; // Only allow letters, numbers, and spaces
-        if (!titleRegex.test(name)) {
-            showMessage("Name should not contain special characters.");
+        if (!titleRegex.test(name1 + name2 + country)) {
+            showMessage("Name and country should not contain special characters.");
+            return;
+        }
+
+        let regex = /^[0-9]+$/;
+        if (!regex.test(age)) {
+            showMessage("Age should be a number");
             return;
         }
 
         // Create a FormData object to store form data
         var formData = new FormData();
-        formData.append("email", email);
-        formData.append("name", name);
-        formData.append("password", password);
+        formData.append("name1", name1);
+        formData.append("name2", name2);
+        formData.append("age", age);
+        formData.append("country", country);
 
         // Send the form data using an AJAX request
         $.ajax({
-            url: "/update_manager", // Replace with your route URL
+            url: "/update_customer/"  + id, // Replace with your route URL
             type: "POST",
             data: formData,
             processData: false,
@@ -102,14 +127,15 @@ $(document).ready(function() {
                 // Handle the success response here
                 showMessage(response.message);
 
-                if(response.message === "Manager updated successfully!!!"){
+                if(response.message === "Customer updated successfully!!!"){
 
                     // Update the table row content
                     var rowToUpdate = $("#hr_row_" + id); // Assuming the response includes the updated manager's ID
                     if (rowToUpdate.length > 0) {
-                        rowToUpdate.find("td:eq(1)").text(name);
-                        rowToUpdate.find("td:eq(2)").text(email);
-                        rowToUpdate.find("td:eq(3)").text(password);
+                        rowToUpdate.find("td:eq(1)").text(name1);
+                        rowToUpdate.find("td:eq(2)").text(name2);
+                        rowToUpdate.find("td:eq(3)").text(age);
+                        rowToUpdate.find("td:eq(4)").text(country);
                     }
                     $("#update-hr").removeClass('model-open');
                 }
@@ -122,7 +148,7 @@ $(document).ready(function() {
     });
 });
 
-// create manager
+// create manager form
 $("#create_hr").on('click', function() {
     document.getElementById("admin_create_hr_name1").value = "";
     document.getElementById("admin_create_hr_name2").value = "";
@@ -154,9 +180,15 @@ $(document).ready(function() {
             return;
         }
 
+        let regex = /^[0-9]+$/;
+        if (!regex.test(age)) {
+            showMessage("Age should be a number");
+            return;
+        }
+
         // Send data to the server using AJAX
         $.ajax({
-            url: "/add_manager", // Replace with your actual route URL
+            url: "/add_customer", // Replace with your actual route URL
             method: "POST",
             data: {
                 name1: name1,
@@ -166,7 +198,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 showMessage(response.message)
-                if(response.message === "Customer added successfully"){
+                if(response.message === "Customer created successfully"){
                     // Assuming the response is a JSON object containing the new manager's data
                     var newRow = "<tr id='hr_row_" + response.id + "'>" +
                                  "<td>#CR" + response.id + "</td>" +
@@ -190,31 +222,33 @@ $(document).ready(function() {
                             if (result !== undefined && result === true) {
                                 $.ajax({
                                     url: "/delete_hr/" + id
-                                }).done(function (message) {
-                                    if (message === "Customer Deleted Successfully") {
+                                }).done(function (response) {
+                                    if (response.message === "Customer Deleted Successfully") {
                                         var rowToRemove = $("#hr_row_" + id); // Target the row using the ID
                                         console.log(rowToRemove)
                                         if (rowToRemove.length > 0) {
                                             rowToRemove.remove(); // Remove the row from the table
                                         }
                                     }
-                                    showMessage(message);
+                                    showMessage(response.message);
                                 });
                             }
                         }
                         exampleUsage();
+
                     });
 
                     $(".update_btn.update_hr").on('click', function() {
                         var id = this.getAttribute("data-id");
                         console.log(id)
                         $.ajax({
-                            url: "/get_hr/" + id
+                            url: "/get_customer/" + id
                         }).done(function(arr) {
-                            document.getElementById("update-hr-id").value = arr[0]
-                            document.getElementById("update-hr-name").value = arr[1];
-                            document.getElementById("update-hr-email").value = arr[2];
-                            document.getElementById("update-hr-password").value = arr[3];
+                            document.getElementById("update-hr-id").value = arr.Customer_ID
+                            document.getElementById("update-hr-name1").value = arr.Customer_First_Name;
+                            document.getElementById("update-hr-name2").value = arr.Customer_Last_Name;
+                            document.getElementById("update-hr-age").value = arr.Age;
+                            document.getElementById("update-hr-country").value = arr.Country;
                             $("#update-hr").addClass('model-open');
                         });
                     });
