@@ -50,9 +50,9 @@ def create_customer():
     Endpoint to create a new customer.
     """
     try:
-        conn = get_db_connection()
+        conn = get_db_connection()              # Estabish db connection
         cursor = conn.cursor()
-        name1 = request.form.get("name1")
+        name1 = request.form.get("name1")       # get form data
         name2 = request.form.get("name2")
         age = request.form.get("age")
         country = request.form.get("country")
@@ -75,7 +75,7 @@ def get_customer(id):
     Endpoint to retrieve a specific customer by ID.
     """
     try:
-        conn = get_db_connection()
+        conn = get_db_connection()              # Establish connection
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Customer_DB WHERE Customer_ID=?", (id,))
         customer = cursor.fetchone()
@@ -162,6 +162,8 @@ def index():
         return render_template("error.html")            # In case of error render error.html
 
 
+# ******************************************
 # Start application
+# ******************************************
 if __name__ == '__main__':
     app.run(debug=True)
